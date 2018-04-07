@@ -2,7 +2,7 @@ import React from 'react';
 import ReactDOM from 'react-dom';
 import { Router, Route, browserHistory } from 'react-router';
 import App from './App';
-import BountyPage from './components/BountyPage/BountyPage';
+import DonatePage from './components/DonatePage/DonatePage';
 import NewBounty from './components/NewBounty/NewBounty';
 import UserPage from './components/UserPage/UserPage';
 import PrivacyPolicy from './components/PrivacyPolicy/PrivacyPolicy';
@@ -18,7 +18,7 @@ import './index.css'
     <MuiThemeProvider>
       <Router history={browserHistory}>
         <Route path="/" component={App} />
-        <Route path="/bounty/:version/:id" component={BountyPage} />
+        <Route path="/bounty/:version/:id" component={DonatePage} />
         <Route path="/user/:address" component={UserPage} />
         <Route path="/privacyPolicy/" component={PrivacyPolicy} />
         <Route path="/terms/" component={TermsOfService} />
