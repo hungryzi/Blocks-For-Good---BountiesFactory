@@ -315,7 +315,6 @@ class NewBounty extends Component {
             this.setState({loadingAmount: 50});
             if (this.state.activateNow === "now"){
               this.setState({loadingString: "Please confirm the Ethereum transaction to issue and activate your bounty"});
-
               this.state.StandardBounties.issueAndActivateBounty(this.state.accounts[0], date, result, stringAmount, 0x0, false, 0x0, stringValue, {from: this.state.accounts[0], value: stringValue}, (cerr, succ)=> {
                 if (err){
                   console.log("cerr", err);
@@ -344,6 +343,7 @@ class NewBounty extends Component {
               });
             } else {
               this.setState({loadingString: "Please confirm the Ethereum transaction to issue your bounty"});
+
               this.state.StandardBounties.issueBounty(this.state.accounts[0], date, result, stringAmount, 0x0, false, 0x0, {from: this.state.accounts[0]}, (err, succ)=> {
                 if (err){
                   console.log("cerr", err);
@@ -588,7 +588,7 @@ class NewBounty extends Component {
               <h3 style={{fontFamily: "Open Sans", margin: "15px", textAlign: "Center",width: "1000px", fontWeight: "600", fontSize: "28px"}}>Create a New Bounty</h3>
               <form className='AddProject' onSubmit={this.handleSubmitContract} style={{padding: "15px", color: "#1D1749"}}>
                 <label style={{fontSize: "12px", display: "block"}} htmlFor='contract_title'>Title</label>
-                <input id='contract_title' style={{border: "none", width: "calc(100% - 15px)"}} className='SendAmount' type='text' />
+                <input id='contract_title' style={{width: "calc(100% - 15px)"}} className='SendAmount' type='text' />
                 {this.state.titleError &&
                   <p style={{fontSize: "12px", color: "#fa4c04", marginTop: "0px", textAlign: "center"}}>{this.state.titleError}</p>}
                 <label style={{fontSize: "12px", display: "block"}} htmlFor='contract_description'>Description</label>
@@ -602,11 +602,11 @@ class NewBounty extends Component {
                   <div style={{display: "inline-block", width: "100%"}}>
                     <div style={{width: "calc(50% - 28px)", float: "left", marginRight: "15px", display: "inline-block"}}>
                       <label style={{fontSize: "12px"}} htmlFor='contact_info'>Contact Name</label>
-                      <input id="contact_name" style={{width: "100%", border: "none"}}></input>
+                      <input id="contact_name" style={{width: "100%"}}></input>
                     </div>
                     <div style={{width: "calc(50% - 28px)", marginLeft: "25px", float: "left", display: "inline-block"}}>
                       <label style={{fontSize: "12px"}} htmlFor='contact_info'>Contact Email</label>
-                      <input id="contact_info" style={{width: "100%", border: "none"}}></input>
+                      <input id="contact_info" style={{width: "100%"}}></input>
                       <p style={{fontSize: "12px", color: "rgba(25, 55, 83,0.5)", marginTop: "-10px", marginBottom: "15px"}}>for bounty hunters to be able to contact you off-chain</p>
                       {this.state.contactError &&
                         <p style={{fontSize: "12px", color: "#fa4c04", marginTop: "0px", textAlign: "center"}}>{this.state.contactError}</p>}
@@ -633,7 +633,7 @@ class NewBounty extends Component {
                 {this.state.payoutMethod === "ERC" && (
                   <div style={{float: "left", display: "inline-block", width: "100%"}}>
                     <label style={{fontSize: "12px", textAlign: "left", display: "block"}} htmlFor='token_address'>Token Address</label>
-                    <input id='token_address' style={{border: "none", width: "calc(100% - 15px)"}} className='SendAmount' type='text'/>
+                    <input id='token_address' style={{width: "calc(100% - 15px)"}} className='SendAmount' type='text'/>
                     <p style={{fontSize: "12px", color: "rgba(25, 55, 83,0.5)", marginTop: "-10px", marginBottom: "15px"}}>the address of the token you plan to use</p>
                   </div>
                 )}
@@ -646,7 +646,7 @@ class NewBounty extends Component {
 
                   <div style={{width: "calc(50% - 28px)", marginLeft: "25px", float: "left", display: "inline-block"}}>
                     <label style={{fontSize: "12px"}} htmlFor='bounty_deadline'>Bounty Deadline (UTC)</label>
-                    <input id='bounty_deadline' style={{border: "none", width: "100%"}} type='datetime-local' max="2222-12-22T22:22"/>
+                    <input id='bounty_deadline' style={{width: "100%"}} type='datetime-local' max="2222-12-22T22:22"/>
                     <p style={{fontSize: "12px", color: "rgba(25, 55, 83,0.5)", marginTop: "-10px", marginBottom: "15px"}}>the deadline for submitting any bugs</p>
                     {this.state.deadlineError &&
                       <p style={{fontSize: "12px", color: "#fa4c04", marginTop: "0px", textAlign: "center"}}>{this.state.deadlineError}</p>}
@@ -676,7 +676,7 @@ class NewBounty extends Component {
                   {this.state.activateNow === "now" && (
                     <div style={{width: "calc(50% - 28px)", marginLeft: "25px", float: "left", display: "inline-block"}}>
                       <label style={{fontSize: "12px", textAlign: "left", display: "block"}} htmlFor='token_address'>Deposit Amount</label>
-                      <input id='deposit_amount' style={{border: "none", width: "100%"}} className='SendAmount' type='number' step="any"/>
+                      <input id='deposit_amount' style={{width: "100%"}} className='SendAmount' type='number' step="any"/>
                       <p style={{fontSize: "12px", color: "rgba(25, 55, 83,0.5)", marginTop: "-10px", marginBottom: "15px"}}>To activate, you must deposit enough to pay the bounty at least once</p>
                       {this.state.valueError &&
                         <p style={{fontSize: "12px", color: "#fa4c04", marginTop: "0px", textAlign: "center"}}>{this.state.valueError}</p>}
@@ -715,7 +715,7 @@ class NewBounty extends Component {
                   </div>
                   <div style={{width: "calc(50% - 28px)", marginLeft: "25px", float: "left", display: "inline-block"}}>
                     <label style={{fontSize: "12px", textAlign: "left", display: "block"}} htmlFor='token_address'>Web Link</label>
-                    <input id='github_link' style={{border: "none", width: "100%"}} className='SendAmount' type='text'/>
+                    <input id='github_link' style={{width: "100%"}} className='SendAmount' type='text'/>
                   </div>
                 </div>
 

@@ -19,15 +19,15 @@ class EditForm extends Component {
       <form className='Activate' onSubmit={this.props.onHandleEdit} style={{width: "100%", display: "inline-block"}}>
         <h3 style={{fontFamily: "Open Sans", marginTop: "0", margin: "0 auto", marginBottom: "15px", textAlign: "center",  fontWeight: "600"}}> Edit your Bounty</h3>
         <label style={{fontSize: "12px"}} htmlFor='contract_title'>Title</label>
-        <input id='title' style={{border: "none", width: "450px"}} className='SendAmount' type='text' defaultValue={this.props.title}/>
+        <input id='title' style={{width: "450px"}} className='SendAmount' type='text' defaultValue={this.props.title}/>
         {this.props.titleError &&
           <p style={{fontSize: "12px", color: "#fa4c04", marginTop: "0px", textAlign: "center"}}>{this.props.titleError}</p>}
           <label style={{fontSize: "12px", display: "block"}} htmlFor='contract_description'>Description</label>
-          <textarea rows="3" id='description' className='SendAmount' type='text'  defaultValue={this.props.description} style={{width: "445px", marginBottom: "15px", fontSize: "16px", padding: "10px", border: "none"}}/>
+          <textarea rows="3" id='description' className='SendAmount' type='text'  defaultValue={this.props.description} style={{width: "445px", marginBottom: "15px", fontSize: "16px", padding: "10px"}}/>
           {this.props.descriptionError &&
             <p style={{fontSize: "12px", color: "#fa4c04", marginTop: "0px", textAlign: "center"}}>{this.props.descriptionError}</p>}
           <label style={{fontSize: "12px", display: "block"}} htmlFor='contact_info'>Contact Info</label>
-          <input id="contact" style={{width: "450px", border: "none"}} defaultValue={this.props.contact}></input>
+          <input id="contact" style={{width: "450px"}} defaultValue={this.props.contact}></input>
           <label style={{fontSize: "12px", display: "block"}} htmlFor='contract_code'>Associated Files</label>
           <input id='contract_code' type="file" name="file" onChange={this.props.onHandleCaptureEditFile} style={{width: "0px", display: "block", border: "0px", color: "white", height: "0px", padding: "0px", margin: "0px"}}/>
           <div style={{width: "452px", display: "block", border: "1px solid rgb(25, 55, 83)", color: "white", height: "20px", padding: "7.5px", paddingTop: "6px", paddingLeft: "4px", borderRadius: "4px", marginBottom: "15px"}}>
@@ -53,7 +53,7 @@ class EditForm extends Component {
           {this.props.containsCode && (
             <div style={{float: "left", display: "inline-block"}}>
               <label style={{fontSize: "12px", textAlign: "left", display: "block"}} htmlFor='token_address'>Github Link</label>
-              <input id='github_link' style={{border: "none", width: "450px"}} defaultValue={this.props.webURL} className='SendAmount' type='text'/>
+              <input id='github_link' style={{width: "450px"}} defaultValue={this.props.webURL} className='SendAmount' type='text'/>
               <p style={{fontSize: "12px", color: "rgba(265,265,265, 0.55)", marginTop: "-10px", marginBottom: "15px"}}>a github link to a relevant repository</p>
             </div>
           )}
