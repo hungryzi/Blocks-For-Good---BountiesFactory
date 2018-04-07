@@ -8,6 +8,7 @@ import UserPage from './components/UserPage/UserPage';
 import PrivacyPolicy from './components/PrivacyPolicy/PrivacyPolicy';
 import TermsOfService from './components/TermsOfService/TermsOfService';
 import Leaderboard from './components/Leaderboard/Leaderboard';
+import BountyFulfillmentPage from './components/BountyFulfillment/BountyFulfillmentPage';
 
 
 import MuiThemeProvider from 'material-ui/styles/MuiThemeProvider';
@@ -18,6 +19,7 @@ import './index.css'
     <MuiThemeProvider>
       <Router history={browserHistory}>
         <Route path="/" component={App} />
+        <Route path="/bountyFulfillment/:version/:id" component={BountyFulfillmentPage} />
         <Route path="/bounty/:version/:id" component={DonatePage} />
         <Route path="/user/:address" component={UserPage} />
         <Route path="/privacyPolicy/" component={PrivacyPolicy} />
