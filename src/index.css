@@ -43,13 +43,9 @@ thead {
     background-attachment: fixed;
 }
 #colourBodyLight {
-  background-color: #d2d2d2;
-  background: -webkit-linear-gradient(#f1f1f1, #d2d2d2); /* For Safari 5.1 to 6.0 */
-  background: -o-linear-gradient(#f1f1f1, #d2d2d2); /* For Opera 11.1 to 12.0 */
-  background: -moz-linear-gradient(#f1f1f1, #d2d2d2); /* For Firefox 3.6 to 15 */
-  background: linear-gradient(#f1f1f1, #d2d2d2); /* Standard syntax */
+  background-color: #FFCDCD;
   background-repeat: no-repeat;
-    background-attachment: fixed;
+  background-attachment: fixed;
 }
 .gitter-open-chat-button {
   border-radius: 0px;

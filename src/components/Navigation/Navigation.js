@@ -19,7 +19,7 @@ class Navigation extends Component {
       <div style={{overflow: "hidden", minHeight: "5em"}} className="navBar">
         <Link to="/" className={"color3"} style={{width: "18em", overflow: "hidden", float: "left",  position: "absolute", top: "15px", left: "30px", padding: "1em 0em 1em 0em"}}>
           <div className={"bountiesLogo mobileHidden color2"} style={{height: "3em", width: "18em", display: "block", float: "left", fontWeight: "bold"}}>
-            Block for Good
+            Blocks for Good
           </div>
         </Link>
         <span style={{backgroundSize: 'cover', backgroundRepeat: 'no-repeat', borderRadius: '50%', boxShadow: 'inset rgba(255, 255, 255, 0.6) 0 2px 2px, inset rgba(0, 0, 0, 0.3) 0 -2px 6px'}} />
