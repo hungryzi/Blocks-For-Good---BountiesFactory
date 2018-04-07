@@ -59,7 +59,7 @@ class NewBounty extends Component {
       loadingAmount: 10,
       loadingString: "",
       containsCode: false,
-      StandardBounties : web3.eth.contract(json.interfaces.StandardBounties).at(json.mainNet.standardBountiesAddress.v1),
+      StandardBounties : web3.eth.contract(json.interfaces.StandardBounties).at(json.rinkeby.standardBountiesAddress.v1),
       UserComments : web3.eth.contract(json.interfaces.UserComments).at(json.mainNet.userCommentsAddress),
       baseURL: json.url.mainNet
     }
