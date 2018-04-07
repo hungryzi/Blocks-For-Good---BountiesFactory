@@ -76,3 +76,17 @@ box-shadow: inset 0px 0px 50px 0px rgba(0,0,0,0.1);
 .color3 {
   color: #1D2786;
 }
+
+select {
+  border-radius: 5px !important;
+  border: 2px solid black !important;
+}
+
+.Select-control {
+  border-radius: 5px !important;
+  border: 2px solid black !important;
+}
+
+input {
+  border-radius: 5px !important;
+}

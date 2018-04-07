@@ -592,7 +592,7 @@ class NewBounty extends Component {
                 {this.state.titleError &&
                   <p style={{fontSize: "12px", color: "#fa4c04", marginTop: "0px", textAlign: "center"}}>{this.state.titleError}</p>}
                 <label style={{fontSize: "12px", display: "block"}} htmlFor='contract_description'>Description</label>
-                <textarea rows="3" id='contract_description' className='SendAmount ' type='text'  style={{width: "calc(100% - 20px)", marginBottom: "15px", fontSize: "16px", padding: "10px", border: "0px"}}/>
+                <textarea rows="3" id='contract_description' className='SendAmount ' type='text'  style={{width: "calc(100% - 20px)", marginBottom: "15px", fontSize: "16px", padding: "10px", border: "2px solid black"}}/>
                 {this.state.descriptionError &&
                   <p style={{fontSize: "12px", color: "#fa4c04", marginTop: "0px", textAlign: "center"}}>{this.state.descriptionError}</p>}
 
@@ -624,7 +624,7 @@ class NewBounty extends Component {
                   </div>
                   <div style={{width: "calc(50% - 28px)", marginLeft: "25px", float: "left", display: "inline-block"}}>
                     <label style={{fontSize: "12px"}} htmlFor='contact_info'>Payout Amount (ETH or whole tokens)</label>
-                    <input id="fulfillmentAmount" style={{width: "100%", border: "0px"}} type="number" step="any"></input>
+                    <input id="fulfillmentAmount" style={{width: "100%"}} type="number" step="any"></input>
                     <p style={{fontSize: "12px", color: "rgba(25, 55, 83,0.5)", marginTop: "-10px", marginBottom: "15px"}}>the reward amount for completing the task</p>
                     {this.state.fulfillmentError &&
                       <p style={{fontSize: "12px", color: "#fa4c04", marginTop: "0px", textAlign: "center"}}>{this.state.fulfillmentError}</p>}
