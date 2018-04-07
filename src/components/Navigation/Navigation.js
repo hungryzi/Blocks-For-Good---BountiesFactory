@@ -87,7 +87,6 @@ class Navigation extends Component {
                 </li>
 
 
-
               </ul>
             }
           />

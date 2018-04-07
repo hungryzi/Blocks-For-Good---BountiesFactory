@@ -1581,7 +1581,7 @@ render() {
 
                   <p style={{ fontSize: "14px", width: "100%", margin: "2.5px 0px", color:"#fe923b", display: "block", overflow: "hidden"}}><b>Submission</b>:</p>
                   <Text style={{ fontSize: "14px", width: "100%", margin: "0px 10px 10px 0px", color: "#fe923b", textDecoration: "none", display: "block", overflow: "hidden"}}>{this.state.fulfillments[i].description}</Text>
-                  <FlatButton style={{backgroundColor: "rgba(0, 126, 255, 0.24)", border:"0px", color: "white", float: "left",  marginTop: "15px", display: "block", width: "200px"}} onClick={this.handleExpandComment.bind(this,i)}>Add Comment </FlatButton>
+                  {/*<FlatButton style={{backgroundColor: "rgba(0, 126, 255, 0.24)", border:"0px", color: "white", float: "left",  marginTop: "15px", display: "block", width: "200px"}} onClick={this.handleExpandComment.bind(this,i)}>Add Comment </FlatButton> */}
 
                   {this.state.fulfillments[i].comments && this.state.fulfillments[i].comments.length > 0 &&
                     <div style={{borderTop: "1px solid rgba(256,256,256, 0.18)", padding: "30px 0px 0px 30px", marginTop: this.state.fulfillments[i].commentsOpen?"30px":"70px"}}>
@@ -1647,6 +1647,7 @@ render() {
                       <input id='contact' className='SendAmount' style={{width: "100%", border: "0px", display: "block"}}/>
                       </div>
 
+                        {/*
                         <div style={{width: "calc(50% - 23px)", display: "block", overflow: "hidden", float: "left", marginRight: "15px"}}>
                           <label style={{fontSize: "12px"}} htmlFor='contract_code'>Associated Files</label>
                           <input id='contract_code' type="file" name="file" onChange={this.handlecaptureFile} style={{width: "0px", display: "block", border: "0px", color: "rgb(25, 55, 83)", height: "0px", padding: "0px", margin: "0px"}}/>
@@ -1670,6 +1671,8 @@ render() {
                           </div>
                           <p style={{fontSize: "12px", color: "rgba(25,55,83, 0.55)", marginTop: "5px"}}>any file associated with your submission</p>
                         </div>
+                        */}
+
                       <div style={{width: "100%", display: "block", overflow: "hidden", float: "left", marginRight: "0"}}>
                         <label htmlFor='deposit_amount' style={{fontSize: "12px", display: "block", width: "100%"}}>Submission Description and Comments</label>
                         <textarea id='bug_description' cols="60" rows="5" className='ContractCode' type='text' style={{width: "920px", border: "0px", padding: "15px", fontSize: "12px"}}></textarea>
