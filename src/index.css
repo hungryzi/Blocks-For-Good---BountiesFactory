@@ -64,3 +64,19 @@ thead {
 -moz-box-shadow: inset 0px 0px 50px 0px rgba(0,0,0,0.1);
 box-shadow: inset 0px 0px 50px 0px rgba(0,0,0,0.1);
 }
+
+.color0 {
+  color: #FFE6EB;
+}
+
+.color1 {
+  color: #FFCDCD;
+}
+
+.color2 {
+  color: #6A65D8;
+}
+
+.color3 {
+  color: #1D2786;
+}
