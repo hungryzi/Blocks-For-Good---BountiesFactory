@@ -65,6 +65,16 @@ Canvas.identicon{
     vertical-align: middle;
     width: 100%;
   }
+  .LikeBtn {
+    margin-top: 1em;
+    font-size: 1em;
+    line-height: 1;
+    padding: 1rem;
+    cursor: pointer;
+    text-align: center;
+    vertical-align: middle;
+    width: 50%;
+  }
 }
 .SideArrow{
   background-color: #183653;
