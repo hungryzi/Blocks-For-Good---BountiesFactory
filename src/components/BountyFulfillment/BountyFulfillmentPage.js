@@ -31,6 +31,10 @@ import BountyDetails from 'components/DonatePage/BountyDetails';
 import Error from 'components/DonatePage/Error';
 import FulfillBountyForm from './FulfillBountyForm'
 
+import ComputerImg from '../BFG_Trafficking/images/computer-thumb.jpg';
+import TraumaImg from '../BFG_Trafficking/images/trauma-big.jpg';
+import LegalImg from '../BFG_Trafficking/images/legal-big.jpg';
+import MedicalImg from '../BFG_Trafficking/images/medical-big.jpg';
 
 import ActivateForm from 'components/ActivateForm/ActivateForm';
 import EditForm from 'components/EditForm/EditForm';
@@ -1381,6 +1385,23 @@ render() {
     } else {
       fileName = this.state.sourceFileName;
     }
+    
+    var img = '';
+    switch( this.state.bountyId ) {
+	  case '582':
+		  img = TraumaImg;
+		  break;
+	  case '583':
+		  img = MedicalImg;
+		  break;
+	  case '584':
+		  img = LegalImg;
+		  break;
+	  case '585':
+		  img = ComputerImg;
+		  break;
+    }
+    
     if (this.state.mine){
       if (this.state.stage === "Draft"){
         console.log("categories", this.state.categoryOptions);
@@ -1587,7 +1608,7 @@ render() {
                   {this.state.fulfillments[i].sourceDirectoryHash &&
                   <p style={{ fontSize: "14px", width: "100%", margin: "2.5px 0px", display: "block", overflow: "hidden"}}><b style={{color: "rgb(25, 55, 83)"}}>Associated File: </b> <Link style={{color: "#4a79fa"}} target={"_blank"} to={"https://ipfs.infura.io/ipfs/" + this.state.fulfillments[i].sourceDirectoryHash+"/"+this.state.fulfillments[i].sourceFileName}> {this.state.fulfillments[i].sourceFileName} </Link> </p>}
 
-                  <p style={{ fontSize: "14px", width: "100%", margin: "2.5px 0px", color:"rgb(25, 55, 83)", display: "block", overflow: "hidden"}}><b>Submission Comments</b>:</p>
+                  <p style={{ fontSize: "14px", width: "100%", margin: "2.5px 0px", color:"white", display: "block", overflow: "hidden"}}><b>Submission Comments</b>:</p>
                   <Text style={{ fontSize: "14px", width: "100%", margin: "0px 10px 10px 0px", color: "rgb(25, 55, 83)", textDecoration: "none", display: "block", overflow: "hidden"}}>{this.state.fulfillments[i].description}</Text>
                   {/*<FlatButton style={{backgroundColor: "rgba(0, 126, 255, 0.24)", border:"0px", color: "white", float: "left",  marginTop: "15px", display: "block", width: "200px"}} onClick={this.handleExpandComment.bind(this,i)}>Add Comment </FlatButton> */}
 
@@ -1609,7 +1630,7 @@ render() {
                       {this.state.fulfillments[i].accepted? "Accepted" : "Not Accepted"}
                 </Chip>
                   {this.state.stage === "Active" && !this.state.fulfillments[i].accepted && this.state.accounts && this.state.accounts[0] === this.state.issuer &&
-                  <FlatButton style={{backgroundColor: "#f73859", border:"0px", color: "rgb(25, 55, 83)", float: "right",  margin: "10px", display: "block"}} onClick={this.handleAccept.bind(this,this.state.fulfillments[i].fulfillment_id)}> Accept </FlatButton>}
+                  <FlatButton style={{backgroundColor: "#f73859", border:"0px", color: "white", float: "right",  margin: "10px", display: "block"}} onClick={this.handleAccept.bind(this,this.state.fulfillments[i].fulfillment_id)}> Accept </FlatButton>}
 
                 </div>
                 {this.state.fulfillments[i].commentsOpen &&
@@ -1759,6 +1780,9 @@ render() {
                     Call for Help: {this.state.title}</h3>
 
                   <div style={{ width: '60%', float: 'left' }}>
+                  
+                  <img src={img} style={{width: "300px", float: "left" }}/>
+
                     <BountyDetails
                       categories={categories}
                       state={this.state}
@@ -1770,7 +1794,7 @@ render() {
                     />
                     {(this.state.stage === "Active" && !this.state.mine) &&
                       <div>
-                        <button onClick={this.handleToggleFulfillment} className='AddBtn' style={{ marginTop:"20px", textAlign:"center", width:"80%",border: "0", backgroundColor: "#f73859", color: "rgb(25, 55, 83)" }}>Fulfill Call for Action</button>
+                        <button onClick={this.handleToggleFulfillment} className='AddBtn' style={{ marginTop:"20px", textAlign:"center", width:"80%",border: "0", backgroundColor: "#f73859", color: "white" }}>Fulfill Call for Action</button>
                       </div>  
                     }  
                   </div>
@@ -1789,7 +1813,7 @@ render() {
                       
                     </div>
                   </div>}
-                  <div style = {{textAlign:"center", backgroundColor: "#f73859", color: "rgb(25, 55, 83)"}}>{numPushed+" Submission"+(numPushed !== 1? "s" : "")}</div>
+                  <div style = {{textAlign:"center", backgroundColor: "#f73859", color: "white"}}>{numPushed+" Submission"+(numPushed !== 1? "s" : "")}</div>
                 {fulfillments}
                 </div>
 

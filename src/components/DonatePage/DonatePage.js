@@ -1393,7 +1393,6 @@ class DonatePage extends Component {
     }
     
     var img = '';
-    console.log("BountyID == "+this.state.bountyId);
     switch( this.state.bountyId ) {
 	  case '582':
 		  img = TraumaImg;
@@ -1806,7 +1805,7 @@ class DonatePage extends Component {
             }
             {!(this.state.loadingFulfillments || this.state.loadingBounty || this.state.bountyError) &&
               <div >
-                <div style={{ marginBottom: "0px", boxShadow: "none", borderRadius: "0", padding: "30px", marginTop: "15px", border: "0", backgroundColor: "rgb(249, 249, 249)", borderBottom: "0px solid #4A79FA", color: "#2D0874", paddingTop: "30px", marginLeft: "15px", marginRight: "15px" }} className="ContractCard">
+                <div style={{ marginBottom: "0px", boxShadow: "none", borderRadius: "0", padding: "30px", marginTop: "15px", border: "0", backgroundColor: "rgb(249, 249, 249)", borderBottom: "0px solid #4A79FA", color: "#0F3057", paddingTop: "30px", marginLeft: "15px", marginRight: "15px" }} className="ContractCard">
                   <BountyHeader
                     state={this.state}
                     handleMainTabsChange={this.handleMainTabsChange}
@@ -1833,7 +1832,7 @@ class DonatePage extends Component {
 
                 </div>
                 <div>
-                  {actions}
+{/*                  {actions}
 
                   <Tabs tabItemContainerStyle={{ backgroundColor: "rgb(249,249,249)", color: "#4A79FA" }}
                     inkBarStyle={{ backgroundColor: "#fe923b", color: "#4A79FA" }}
@@ -1865,6 +1864,7 @@ class DonatePage extends Component {
                       {comments}
                     </Tab>
                   </Tabs>
+*/}
                 </div>
               </div>
             }
