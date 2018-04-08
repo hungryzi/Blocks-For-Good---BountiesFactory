@@ -11,9 +11,10 @@
 			}
 	},
 	"rinkeby": {
-		"userCommentsAddress": "0xc31550c13a7bf504377a60414f499d15863b057e",
+		"userCommentsAddress": "0xd0a170ba138d1cfe95fd4aba5a897bc4a1b53379",
 		"standardBountiesAddress": {
-			"v1":"0x34a4c4547a1f0041d48ca33c850ab4744b5389e1"
+			"v0":"0x92f9d637355f96dc8c228827fe1b31f8e3477815",
+			"v1":"0xf209d2b723b6417cbf04c07e733bee776105a073"
 			}
 	},
 	"localhost": {
