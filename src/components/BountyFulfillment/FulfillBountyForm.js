@@ -25,7 +25,7 @@ export default class FulfillForm extends Component {
                           <p style={{fontSize: "12px", color: "#fa4c04", marginTop: "0px", textAlign: "center"}}>{state.fulfillmentError}</p>}
                       </div>
                       <div style={{width: "100%", display: "block", overflow: "hidden", float: "left", marginRight: "0"}}>
-                      <button type='submit'  className='AddBtn' style={{backgroundColor: "#FF8D24", border:"0px", color: "rgb(25, 55, 83)", display: "block", padding: "10px", margin: "0 auto", marginTop: "20px",marginBottom: "10px", fontSize: "1em", width: "200px"}}>SUBMIT</button>
+                      <button type='submit'  className='AddBtn' style={{backgroundColor: "#f73859", border:"0px", color: "color", display: "block", padding: "10px", margin: "0 auto", marginTop: "20px",marginBottom: "10px", fontSize: "1em", width: "200px"}}>SUBMIT</button>
 
                       </div>
 
