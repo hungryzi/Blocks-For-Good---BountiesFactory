@@ -27,7 +27,7 @@ export default class BountyHeader extends Component {
   render() {
     const tabs = <Tabs tabItemContainerStyle={{
       width: "100%",
-      borderBottom: "1px solid black",
+      borderBottom: "2px solid black",
       color: 'black',
       backgroundColor: 'none'
     }}
