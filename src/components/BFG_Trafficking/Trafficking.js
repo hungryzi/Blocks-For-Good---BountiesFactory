@@ -23,7 +23,10 @@ import FlatButton from 'material-ui/FlatButton';
 import ContractList from 'components/ContractList/ContractList';
 import Navigation from 'components/Navigation/Navigation';
 
-
+import ComputerThumb from './images/computer-thumb.jpg';
+import TraumaThumb from './images/trauma-thumb.jpg';
+import LegalThumb from './images/legal-thumb.jpg';
+import MedicalThumb from './images/medical-thumb.jpg';
 
 import Dialog from 'material-ui/Dialog';
 import SvgArrow from 'material-ui/svg-icons/hardware/keyboard-arrow-right';
@@ -293,7 +296,8 @@ class Trafficking extends Component {
 		  }
 		  var blockLeftStyle = {
 				  float: "left",
-				  maxWidth: "85%"
+				  maxWidth: "85%",
+				  marginLeft: "10px"
 		  }
 		  var blockRightStyle = {
 				  float: "right",
@@ -314,21 +318,26 @@ class Trafficking extends Component {
 		  var data = this.state.bounties;
 		  var activeRows = data.map(function(row) {
 			  var meta = '';
+			  var img = '';
 			  switch( row.bounty_id ) {
 			  case 579:
 			  case 580:
 				  return;
 			  case 582:
 				  meta = 'Salvation Army | 8 months | 10 women';
+				  img = TraumaThumb;
 				  break;
 			  case 583:
 				  meta = 'TAMAR | 10 women';
+				  img = MedicalThumb;
 				  break;
 			  case 584:
 				  meta = 'Law Services International | 10 hours | 2 defendants';
+				  img = LegalThumb;
 				  break;
 			  case 585:
 				  meta = 'Charities World Wide LLP | 20 Participants';
+				  img = ComputerThumb;
 				  break;
 			  }
 			  
@@ -338,6 +347,7 @@ class Trafficking extends Component {
 				  
 			  return (
 			  	<div style={blockStyle}>
+			  	<img src={img} style={{width:"90px", float: "left"}}/>
 			  	    <div style={blockLeftStyle}>
 			  		<b>{row.title}</b><br/>
 			  		{desc}<br/>
@@ -360,7 +370,7 @@ class Trafficking extends Component {
 				  <div style={{ overflow: "hidden", width: "100%", margin: "0 auto", paddingBottom: "160px", display: "block"}}>
 
 		            <div >
-		              <div style={{marginBottom: "0px", boxShadow: "none", borderRadius: "0", padding: "30px", marginTop: "15px", border: "0", display: "block", backgroundColor: "rgb(249, 249, 249)", borderBottom: "0px solid #4A79FA", color:"#1D2786", paddingTop: "30px", marginLeft: "15px", marginRight: "15px"}} className="ContractCard">
+		              <div style={{marginBottom: "0px", boxShadow: "none", borderRadius: "0", padding: "30px", marginTop: "15px", border: "0", display: "block", backgroundColor: "rgb(249, 249, 249)", borderBottom: "0px solid #4A79FA", color:"#0F3057", paddingTop: "30px", marginLeft: "15px", marginRight: "15px"}} className="ContractCard">
 
 						  	<div id="dashStyle">
 						  		<div><span>Total Donors</span>15,000</div>

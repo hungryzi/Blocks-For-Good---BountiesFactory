@@ -30,6 +30,11 @@ import BountyDetails from './BountyDetails';
 const ReactMarkdown = require('react-markdown')
 
 
+import ComputerImg from '../BFG_Trafficking/images/computer-thumb.jpg';
+import TraumaImg from '../BFG_Trafficking/images/trauma-big.jpg';
+import LegalImg from '../BFG_Trafficking/images/legal-big.jpg';
+import MedicalImg from '../BFG_Trafficking/images/medical-big.jpg';
+
 import ActivateForm from 'components/ActivateForm/ActivateForm';
 import EditForm from 'components/EditForm/EditForm';
 import ChangeDeadlineForm from 'components/ChangeDeadlineForm/ChangeDeadlineForm';
@@ -1386,6 +1391,29 @@ class DonatePage extends Component {
     } else {
       fileName = this.state.sourceFileName;
     }
+    
+    var img = '';
+    console.log("BountyID == "+this.state.bountyId);
+    switch( this.state.bountyId ) {
+	  case '582':
+		  img = TraumaImg;
+		  break;
+	  case '583':
+		  img = MedicalImg;
+		  break;
+	  case '584':
+		  img = LegalImg;
+		  break;
+	  case '585':
+		  img = ComputerImg;
+		  break;
+    }
+    
+//    console.log(ComputerImg);
+//    console.log("IMg = ");
+//    console.log(img);
+//    console.log(this.state.bountyId);
+    
     if (this.state.mine) {
       if (this.state.stage === "Draft") {
         console.log("categories", this.state.categoryOptions);
@@ -1782,15 +1810,20 @@ class DonatePage extends Component {
                   <BountyHeader
                     state={this.state}
                     handleMainTabsChange={this.handleMainTabsChange}
+                  style={{display:"block",padding:"0px"}}
                   />
                   <div style={{ width: '70%', float: 'left' }}>
-                    <h3 className="bountyHeader" style={{ width: "100%", display: "inline", fontSize: "28px", fontWeight: "600", textOverflow: "ellipsis", overflow: "hidden" }}>
+                    <h3 className="bountyHeader" style={{ width: "100%", display: "block", fontSize: "28px", fontWeight: "600", textOverflow: "ellipsis", overflow: "hidden" }}>
                       Call for Action: {this.state.title}</h3>
-                    <BountyDetails
+                    
+                      <img src={img} style={{width: "300px", float: "left" }}/>
+                      
+                      <BountyDetails
                       categories={categories}
                       state={this.state}
                     />
                   </div>
+                    
                   <div style={{ width: '30%', float: 'left' }}>
                     <BountyStats
                       handleContribute={this.handleContribute}

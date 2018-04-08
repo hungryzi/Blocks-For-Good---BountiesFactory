@@ -814,7 +814,8 @@ input {
 }
 
 .navBar{
-  background: #360074;
+  /* background: #360074; */
+  background: #0F3057
 }
 .buttonGlow:hover{
   color: #4A79FA !important;
