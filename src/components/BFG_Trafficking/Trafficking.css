@@ -1,7 +1,7 @@
 /* body { background-color: #eee; }
  */
  
-div#trafficking div#foreground { position: absolute; line-height: 28px; background-color: #eee; width: 100%;}
+div#trafficking div#foreground { position: absolute; color: #000; line-height: 28px; background-color: #eee; width: 100%;}
 div#trafficking div#header { background-color: #364F6B; color: white; padding: 10px }
 
 div#trafficking div#dashStyle div { width: 25%; box-sizing: border-box; float: left; display: inline-block; text-align: left; border-right: 1px solid #000; padding: 5px 10px; }

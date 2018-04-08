@@ -289,7 +289,8 @@ class Trafficking extends Component {
 				  cursor: "pointer"
 		  }
 		  var blockLeftStyle = {
-				  float: "left"
+				  float: "left",
+				  maxWidth: "85%"
 		  }
 		  var blockRightStyle = {
 				  float: "right",
@@ -304,13 +305,15 @@ class Trafficking extends Component {
 		  
 		  var data = this.state.bounties;
 		  var activeRows = data.map(function(row) {
+			  if( row.bounty_id == 579 || row.bounty_id == 580 ) return;   // exclude early tests
 			  var button = row.bountyStage == 0 ? 'Fund this Project' : 'Accept this Call'
 		      var link = "/"+(row.bountyStage == 0 ? "bounty" : "bountyFulfillment")+"/v1/"+row.bounty_id;
+			  var desc = row.description.substring(0,200);
 			  return (
 			  	<div style={blockStyle}>
 			  	    <div style={blockLeftStyle}>
 			  		<b>{row.title}</b><br/>
-			  		{row.description}
+			  		{desc}
 			  		</div>
 			  		<div style={blockRightStyle}>
 			  		<b>${row.usd_price} USD</b><br/>
