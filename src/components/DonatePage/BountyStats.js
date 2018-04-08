@@ -16,7 +16,7 @@ export default class BountyStats extends Component {
     return <div className="bountyPrice" style={{ width: "100%", display: "inline-block" }}>
       <div style={{ backgroundColor: "rgba(1, 1, 1, 0.05)", display: "block", overflow: "hidden", padding: "15px" }}>
         <h5 style={{ fontSize: "13px", width: "100%", marginTop: "0px", marginBottom: "0px", color: "#8C9899", fontWeight: "200" }}>FUNDING NEEDED</h5>
-        <h5 style={{ display: 'inline-block', marginTop: "7.5px", marginBottom: "0px", color: "#2D0874", fontSize: "32px", fontWeight: "600" }}>{state.value}<b style={{ color: "#fe923b", fontWeight: "600", lineHeight: "28px" }}>{' '}{state.symbol ? state.symbol : 'ETH '}</b></h5>
+        <h5 style={{ display: 'inline-block', marginTop: "7.5px", marginBottom: "0px", color: "#0F3057", fontSize: "32px", fontWeight: "600" }}>{state.value}<b style={{ color: "#f73859", fontWeight: "600", lineHeight: "28px" }}>{' '}{state.symbol ? state.symbol : 'ETH '}</b></h5>
         <h5 style={{ display: 'inline-block', marginTop: "0px", color: "#aaa", marginBottom: "15px", fontSize: "32px", fontWeight: "200", marginLeft: "0.5em" }}>({numberWithCommas(parseInt((state.usdValue)))}{' '}USD)</h5>
         <p style={{ fontSize: "16px", width: "100%", margin: "2.5px 0px", marginBottom: "7.5px" }}>{state.balance + " " + state.symbol} funded ({Math.round(state.balance / state.value / 100) + "%"})</p>
         <p style={{ fontSize: "16px", width: "100%", margin: "2.5px 0px", marginBottom: "7.5px" }}>{state.deadlineString}</p>
@@ -27,8 +27,8 @@ export default class BountyStats extends Component {
         {state.contributionError &&
           <p style={{ fontSize: "12px", color: "#fe923b", marginTop: "0px", textAlign: "center" }}>{state.contributionError}</p>
         }
-        <div style={{ backgroundColor: "#FF8D24" }}>
-          <button type='submit' className='AddBtn' style={{ border: "0", backgroundColor: "#FF8D24", color: "rgb(25, 55, 83)" }}>Fund this project</button>
+        <div style={{ backgroundColor: "#f73859" }}>
+          <button type='submit' className='AddBtn' style={{ border: "0", backgroundColor: "#f73859", color: "white" }}>Fund this project</button>
           <input id='deposit_amount' className='SendAmount' type='number' step="any" style={{ border: "none !important" }} placeholder={state.symbol ? state.symbol : 'ΞTH'} />
         </div>
 
