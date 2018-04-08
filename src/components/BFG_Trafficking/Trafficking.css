@@ -1,20 +1,21 @@
-body { background-color: #eee; }
+/* body { background-color: #eee; }
+ */
+ 
+div#trafficking div#foreground { position: absolute; line-height: 28px; background-color: #eee; width: 100%;}
+div#trafficking div#header { background-color: #364F6B; color: white; padding: 10px }
 
-div#foreground { position: absolute; line-height: 28px; background-color: #eee; width: 100%;}
-div#header { background-color: #364F6B; color: white; padding: 10px }
+div#trafficking div#dashStyle div { width: 25%; box-sizing: border-box; float: left; display: inline-block; text-align: left; border-right: 1px solid #000; padding: 5px 10px; }
+div#trafficking div#dashStyle div span { font-size: 20px; color: #888 }
 
-div#dashStyle div { width: 25%; box-sizing: border-box; float: left; display: inline-block; text-align: left; border-right: 1px solid #000; padding: 5px 10px; }
-div#dashStyle div span { font-size: 20px; color: #888 }
+div#trafficking div#subMenu { padding-top: 10px; clear: both; font-size: 24px; color: #888; }
+div#trafficking div#subMenu ul { padding: 20px 0px; border-bottom: 1px solid #888; }
+div#trafficking div#subMenu ul li { display: inline; padding: 20px 30px 0px 0px; cursor: pointer; }
+div#trafficking div#subMenu ul li#selected { color: #000; }
 
-div#subMenu { padding-top: 10px; clear: both; font-size: 24px; color: #888; }
-div#subMenu ul { padding: 20px 0px; border-bottom: 1px solid #888; }
-div#subMenu ul li { display: inline; padding: 20px 30px 0px 0px; cursor: pointer; }
-div#subMenu ul li#selected { color: #000; }
+div#trafficking ul#menu { font-size: 24px; display: inline; float: right; margin-top: 15px; }
+div#trafficking ul#menu li { display: inline; padding: 20px; cursor: pointer; }
+div#trafficking ul#menu li input { font-size: 18px; border-radius: 30px; height: 20px; width: 300px; }
+div#trafficking ul#menu li img { position: relative; width: 20px; right: 30px; top: 2px }
+div#trafficking div#copy ul { list-style-type: circle; }
 
-ul#menu { font-size: 24px; display: inline; float: right; margin-top: 15px; }
-ul#menu li { display: inline; padding: 20px; cursor: pointer; }
-ul#menu li input { font-size: 18px; border-radius: 30px; height: 20px; width: 300px; }
-ul#menu li img { position: relative; width: 20px; right: 30px; top: 2px }
-div#copy ul { list-style-type: circle; }
-
-a { cursor: pointer; text-decoration: none; margin-top: 10px; font-weight: normal !important; display: block; font-size: 16px; color: #000; padding: 5px 10px; text-align: center; font-weight: bold; border: 1px solid #000; border-radius: 5px; width: 150px; height: 30px; }
+div#trafficking a { cursor: pointer; text-decoration: none; margin-top: 10px; font-weight: normal !important; display: block; font-size: 16px; color: #000; padding: 5px 10px; text-align: center; font-weight: bold; border: 1px solid #000; border-radius: 5px; width: 150px; height: 30px; }
