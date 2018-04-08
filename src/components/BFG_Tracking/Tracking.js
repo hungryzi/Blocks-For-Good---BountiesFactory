@@ -20,6 +20,7 @@ import search from '../BFG_Trafficking/images/spyglass.png'
 
 import arrows from './images/arrows.png'
 import lines from './images/lines.png'
+import flow from './images/flow.png'
 
 import FlatButton from 'material-ui/FlatButton';
 
@@ -191,6 +192,9 @@ class Tracking extends Component {
 								<div style={{ clear: "both" }} />
 								<div>
 									<h2>Salvation Army: Human Trafficking</h2>
+									<div style={{clear: "both"}}>
+									<img src={flow} style={{width:"1400px"}}/>
+									</div>
 									<div style={{ float: "left", padding: "20px", borderRight: "1px solid #f73859", boxSizing: 'border-box', width: "40%" }}>
 										<img src={arrows} style={{ width: "100%" }} />
 									</div>
