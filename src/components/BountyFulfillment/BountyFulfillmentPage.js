@@ -1583,12 +1583,12 @@ render() {
                   <p style={{ fontSize: "14px", margin: "4px  10px 2.5px 10px", display: "inline-block", float: "left"}}><Link style={{color: "#4a79fa"}} target={"_blank"} to={"/user/"+ this.state.fulfillments[i].fulfiller}>{this.state.fulfillments[i].fulfiller}</Link></p>
                   */}
                   {this.state.fulfillments[i].fulfiller_email &&
-                  <p style={{ fontSize: "14px", width: "100%", margin: "2.5px 0px", display: "block", overflow: "hidden"}}><b style={{color: "#fe923b"}}>Contact: </b> <a href={"mailto:"+this.state.fulfillments[i].fulfiller_email} >{this.state.fulfillments[i].fulfiller_email} </a></p>}
+                  <p style={{ fontSize: "14px", width: "100%", margin: "2.5px 0px", display: "block", overflow: "hidden"}}><b style={{color: "rgb(25, 55, 83)"}}>Contact: </b> <a href={"mailto:"+this.state.fulfillments[i].fulfiller_email} >{this.state.fulfillments[i].fulfiller_email} </a></p>}
                   {this.state.fulfillments[i].sourceDirectoryHash &&
-                  <p style={{ fontSize: "14px", width: "100%", margin: "2.5px 0px", display: "block", overflow: "hidden"}}><b style={{color: "#fe923b"}}>Associated File: </b> <Link style={{color: "#4a79fa"}} target={"_blank"} to={"https://ipfs.infura.io/ipfs/" + this.state.fulfillments[i].sourceDirectoryHash+"/"+this.state.fulfillments[i].sourceFileName}> {this.state.fulfillments[i].sourceFileName} </Link> </p>}
+                  <p style={{ fontSize: "14px", width: "100%", margin: "2.5px 0px", display: "block", overflow: "hidden"}}><b style={{color: "rgb(25, 55, 83)"}}>Associated File: </b> <Link style={{color: "#4a79fa"}} target={"_blank"} to={"https://ipfs.infura.io/ipfs/" + this.state.fulfillments[i].sourceDirectoryHash+"/"+this.state.fulfillments[i].sourceFileName}> {this.state.fulfillments[i].sourceFileName} </Link> </p>}
 
-                  <p style={{ fontSize: "14px", width: "100%", margin: "2.5px 0px", color:"#fe923b", display: "block", overflow: "hidden"}}><b>Submission Comments</b>:</p>
-                  <Text style={{ fontSize: "14px", width: "100%", margin: "0px 10px 10px 0px", color: "#fe923b", textDecoration: "none", display: "block", overflow: "hidden"}}>{this.state.fulfillments[i].description}</Text>
+                  <p style={{ fontSize: "14px", width: "100%", margin: "2.5px 0px", color:"rgb(25, 55, 83)", display: "block", overflow: "hidden"}}><b>Submission Comments</b>:</p>
+                  <Text style={{ fontSize: "14px", width: "100%", margin: "0px 10px 10px 0px", color: "rgb(25, 55, 83)", textDecoration: "none", display: "block", overflow: "hidden"}}>{this.state.fulfillments[i].description}</Text>
                   {/*<FlatButton style={{backgroundColor: "rgba(0, 126, 255, 0.24)", border:"0px", color: "white", float: "left",  marginTop: "15px", display: "block", width: "200px"}} onClick={this.handleExpandComment.bind(this,i)}>Add Comment </FlatButton> */}
 
                   {this.state.fulfillments[i].comments && this.state.fulfillments[i].comments.length > 0 &&
@@ -1603,13 +1603,13 @@ render() {
 
                 </div>
                 <div style={{width: "85px", display: "inline-block", float: "right"}}>
-                <Chip style={{float: "right", border: "1px solid #2D0874", backgroundColor:"#2D0874", height: "30px", margin: "5px auto"}}
-                      labelStyle={{color: this.state.fulfillments[i].accepted? "#6dFFFF" : "#ffb815", fontSize: "14px", marginTop: "-2px"}}
+                <Chip style={{float: "right", border: "1px solid #364F6B", backgroundColor:"#364F6B", height: "30px", margin: "5px auto"}}
+                      labelStyle={{color: this.state.fulfillments[i].accepted? "#f73859" : "#f73859", fontSize: "14px", marginTop: "-2px"}}
                       key={this.state.fulfillments[i].accepted? "Accepted" : "Not Accepted"}>
                       {this.state.fulfillments[i].accepted? "Accepted" : "Not Accepted"}
                 </Chip>
                   {this.state.stage === "Active" && !this.state.fulfillments[i].accepted && this.state.accounts && this.state.accounts[0] === this.state.issuer &&
-                  <FlatButton style={{backgroundColor: "#FF8D24", border:"0px", color: "rgb(25, 55, 83)", float: "right",  margin: "10px", display: "block"}} onClick={this.handleAccept.bind(this,this.state.fulfillments[i].fulfillment_id)}> Accept </FlatButton>}
+                  <FlatButton style={{backgroundColor: "#f73859", border:"0px", color: "rgb(25, 55, 83)", float: "right",  margin: "10px", display: "block"}} onClick={this.handleAccept.bind(this,this.state.fulfillments[i].fulfillment_id)}> Accept </FlatButton>}
 
                 </div>
                 {this.state.fulfillments[i].commentsOpen &&
@@ -1770,7 +1770,7 @@ render() {
                     />
                     {(this.state.stage === "Active" && !this.state.mine) &&
                       <div>
-                        <button onClick={this.handleToggleFulfillment} className='AddBtn' style={{ marginTop:"20px", textAlign:"center", width:"80%",border: "0", backgroundColor: "#FF8D24", color: "rgb(25, 55, 83)" }}>Fulfill Call for Action</button>
+                        <button onClick={this.handleToggleFulfillment} className='AddBtn' style={{ marginTop:"20px", textAlign:"center", width:"80%",border: "0", backgroundColor: "#f73859", color: "rgb(25, 55, 83)" }}>Fulfill Call for Action</button>
                       </div>  
                     }  
                   </div>
@@ -1789,7 +1789,7 @@ render() {
                       
                     </div>
                   </div>}
-                  <div style = {{textAlign:"center", backgroundColor: "#FF8D24", color: "rgb(25, 55, 83)"}}>{numPushed+" Submission"+(numPushed !== 1? "s" : "")}</div>
+                  <div style = {{textAlign:"center", backgroundColor: "#f73859", color: "rgb(25, 55, 83)"}}>{numPushed+" Submission"+(numPushed !== 1? "s" : "")}</div>
                 {fulfillments}
                 </div>
 
@@ -1818,7 +1818,7 @@ render() {
                       overflowY: 'auto',
                       height: "fixed"
                   }}>
-              <Tab label={numPushed+" Submission"+(numPushed !== 1? "s" : "")} value={0} style={{color: this.state.mainTabValue === 0? "#fff" : "#FF8D24", fontSize: "16px", backgroundColor: this.state.mainTabValue === 0? ("#FF8D24"): "rgba(10, 22, 40, 0)"}}>
+              <Tab label={numPushed+" Submission"+(numPushed !== 1? "s" : "")} value={0} style={{color: this.state.mainTabValue === 0? "#fff" : "#f73859", fontSize: "16px", backgroundColor: this.state.mainTabValue === 0? ("#f73859"): "rgba(10, 22, 40, 0)"}}>
                 {fulfillments}
               </Tab>
                   </Tabs>
