@@ -10,6 +10,8 @@ import TermsOfService from './components/TermsOfService/TermsOfService';
 import Leaderboard from './components/Leaderboard/Leaderboard';
 import BountyFulfillmentPage from './components/BountyFulfillment/BountyFulfillmentPage';
 
+import Trafficking from './components/BFG_Trafficking/Trafficking';
+import Tracking from './components/BFG_Tracking/Tracking';
 
 import MuiThemeProvider from 'material-ui/styles/MuiThemeProvider';
 
@@ -26,6 +28,9 @@ import './index.css'
         <Route path="/terms/" component={TermsOfService} />
         <Route path="/newBounty/" component={NewBounty} />
         <Route path="/leaderBoard/" component={Leaderboard} />
-      </Router>
+
+        <Route path="/trafficking/" component={Trafficking} />
+        <Route path="/tracking/" component={Tracking} />
+     </Router>
     </MuiThemeProvider>
 ), document.getElementById('root'));
