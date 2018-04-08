@@ -356,7 +356,7 @@ class Trafficking extends Component {
 						  	</div>
 						  		<h2 style={headerH2Style}>Human Trafficking in London</h2>
 						  		<p>
-						  		Around the world.  There are TWENTY-SEVEN MILLION SLAVES in the world today.  More than at any other point in human historyAnd the situation is dire and getting worse by the day.  This is the world’s fastest growing criminal industry generating $150 Billion in Illegal profits.Every 30 seconds, someone becomes a victim of modern-day slavery.Sex trafficking is a form of modern slavery that exists throughout the worldSex traffickers use violence, threats, lies, debt bondage, and other forms of coercion to compel victims to engage in commercial sex acts against their willThe situations that sex trafficking victims face vary dramatically. Many victims become romantically involved with someone who then forces or manipulates them into prostitution. Others are lured in with false promises of a job, such as modeling or dancing. Some are forced to sell sex by their parents or other family members.
+						  		There are 27m slaves in the world today. Human Trafficking is the fastest growing criminal industry generating $150b in Illegal profits. Every 30 seconds, someone in London becomes a victim of modern-day slavery. Traffickers use violence, threats, lies, debt bondage, and other forms of coercion to compel victims to engage in commercial sex acts or bonded labor against their will.
 						  		</p>
 						  		<div>
 						  			{activeRows}
