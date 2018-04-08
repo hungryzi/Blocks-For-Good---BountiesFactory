@@ -1832,7 +1832,7 @@ class DonatePage extends Component {
 
                 </div>
                 <div>
-                  {actions}
+{/*                  {actions}
 
                   <Tabs tabItemContainerStyle={{ backgroundColor: "rgb(249,249,249)", color: "#4A79FA" }}
                     inkBarStyle={{ backgroundColor: "#fe923b", color: "#4A79FA" }}
@@ -1864,6 +1864,7 @@ class DonatePage extends Component {
                       {comments}
                     </Tab>
                   </Tabs>
+*/}
                 </div>
               </div>
             }
