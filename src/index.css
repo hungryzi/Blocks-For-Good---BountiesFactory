@@ -94,4 +94,5 @@ input {
 .tabs .tab {
   width: 25%;
   float: left;
+  color: #aaa;
 }

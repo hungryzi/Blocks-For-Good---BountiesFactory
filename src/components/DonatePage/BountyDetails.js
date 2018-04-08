@@ -6,7 +6,7 @@ const ReactMarkdown = require('react-markdown')
 export default class BountyStats extends Component {
   render() {
     const { state, categories } = this.props;
-    return <div className="bountyDetails" style={{ float: "left", display: "inline-block", width: "calc(100% - 260px)", marginLeft: "30px", marginRight: "30px", overflow: "hidden", textOverflow: "ellipsis" }}>
+    return <div className="bountyDetails" style={{ float: "left", display: "inline-block", width: "calc(100% - 260px)", overflow: "hidden", textOverflow: "ellipsis" }}>
       <p style={{ fontSize: "14px", margin: "4px  0px 10px 0px", display: "inline-block", float: "left" }}><b style={{ color: "#fe923b" }}>Charity address: </b></p>
       <Blockies
         seed={state.issuer}
