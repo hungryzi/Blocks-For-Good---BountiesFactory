@@ -25,6 +25,12 @@ import Navigation from 'components/Navigation/Navigation';
 
 const ReactMarkdown = require('react-markdown')
 
+import BountyHeader from 'components/DonatePage/BountyHeader';
+import BountyFunds from './BountyFunds';
+import BountyDetails from 'components/DonatePage/BountyDetails';
+import Error from 'components/DonatePage/Error';
+import FulfillBountyForm from './FulfillBountyForm'
+
 
 import ActivateForm from 'components/ActivateForm/ActivateForm';
 import EditForm from 'components/EditForm/EditForm';
@@ -1601,7 +1607,7 @@ render() {
                       {this.state.fulfillments[i].accepted? "Accepted" : "Not Accepted"}
                 </Chip>
                   {this.state.stage === "Active" && !this.state.fulfillments[i].accepted && this.state.accounts && this.state.accounts[0] === this.state.issuer &&
-                  <FlatButton style={{backgroundColor: "#4A79FA", border:"0px", color: "#152639", float: "right",  margin: "10px", display: "block"}} onClick={this.handleAccept.bind(this,this.state.fulfillments[i].fulfillment_id)}> Accept </FlatButton>}
+                  <FlatButton style={{backgroundColor: "#FF8D24", border:"0px", color: "rgb(25, 55, 83)", float: "right",  margin: "10px", display: "block"}} onClick={this.handleAccept.bind(this,this.state.fulfillments[i].fulfillment_id)}> Accept </FlatButton>}
 
                 </div>
                 {this.state.fulfillments[i].commentsOpen &&
@@ -1647,32 +1653,6 @@ render() {
                       <input id='contact' className='SendAmount' style={{width: "100%", border: "0px", display: "block"}}/>
                       </div>
 
-                        {/*
-                        <div style={{width: "calc(50% - 23px)", display: "block", overflow: "hidden", float: "left", marginRight: "15px"}}>
-                          <label style={{fontSize: "12px"}} htmlFor='contract_code'>Associated Files</label>
-                          <input id='contract_code' type="file" name="file" onChange={this.handlecaptureFile} style={{width: "0px", display: "block", border: "0px", color: "rgb(25, 55, 83)", height: "0px", padding: "0px", margin: "0px"}}/>
-                          <div style={{width: "100%", display: "block", border: "0px", color: "white", height: "20px", padding: "7.5px", paddingTop: "6px", paddingLeft: "0px", borderRadius: "4px"}}>
-                            <label htmlFor="contract_code" style={{backgroundColor: "white", color: "#122134", padding: "3px 15px", fontWeight: "700", borderRadius: "0px", marginTop: "-1px"}}> Upload </label>
-                            {
-                              (this.state.didUploadFile && !this.state.fileUploadFinished)&&
-                              <div style={{ float: "right", display: "inline-block", padding: "0px 15px 0px 5px", overflow: "hidden"}}>
-                                <Halogen.ClipLoader color={"#fe923b"} size={"15px"} style={{float: "right", width: "15px", height: "15px", display: "inline-block"}}/>
-                              </div>
-
-                            }
-                            {
-                              (this.state.didUploadFile && this.state.fileUploadFinished)&&
-                              <div style={{ float: "right", display: "inline-block", padding: "3px 15px 0px 5px", overflow: "hidden"}}>
-                              <SvgCheck style={{color: "rgb(22, 229, 205)", float: "right", width: "15px", height: "15px", display: "inline-block"}}/>
-                              </div>
-
-                            }
-                            <span style={{float: "right", marginRight: "30px", color: "rgb(25, 55, 83)"}}> {fileName} </span>
-                          </div>
-                          <p style={{fontSize: "12px", color: "rgba(25,55,83, 0.55)", marginTop: "5px"}}>any file associated with your submission</p>
-                        </div>
-                        */}
-
                       <div style={{width: "100%", display: "block", overflow: "hidden", float: "left", marginRight: "0"}}>
                         <label htmlFor='deposit_amount' style={{fontSize: "12px", display: "block", width: "100%"}}>Submission Description and Comments</label>
                         <textarea id='bug_description' cols="60" rows="5" className='ContractCode' type='text' style={{width: "920px", border: "0px", padding: "15px", fontSize: "12px"}}></textarea>
@@ -1693,6 +1673,7 @@ render() {
             </div>
 
           }
+  
           {fulfillments}
         </div>
       );
@@ -1757,100 +1738,62 @@ render() {
          </Dialog>
         <div id={"colourBodyLight"} style={{minHeight: "100vh", position: "relative"}}>
           <Navigation userAddress={this.state.accounts[0] || ""}/> 
-          <div style={{ overflow: "hidden", width: "100%", maxWidth: "1050px", margin: "0 auto", paddingBottom: "160px", display: "block"}}>
+          <div style={{ overflow: "hidden", width: "100%", margin: "0 auto", paddingBottom: "160px", display: "block" }}>
 
-          {(this.state.loadingFulfillments || this.state.loadingBounty)  &&
+            {(this.state.loadingFulfillments || this.state.loadingBounty) &&
 
-            <div style={{width: "40px", margin: "0 auto", marginTop: "60px", overflow: "hidden", marginBottom: "60px"}}>
-            <Halogen.ScaleLoader color={"rgb(254, 146, 59)"} />
-            </div>
-          }
-          {!(this.state.loadingFulfillments || this.state.loadingBounty)  && this.state.bountyError &&
+              <div style={{ width: "40px", margin: "0 auto", marginTop: "60px", overflow: "hidden", marginBottom: "60px" }}>
+                <Halogen.ScaleLoader color={"rgb(254, 146, 59)"} />
+              </div>
+            }
+            {!(this.state.loadingFulfillments || this.state.loadingBounty) && this.state.bountyError &&
+              <Error />
+            }
+            {!(this.state.loadingFulfillments || this.state.loadingBounty || this.state.bountyError) &&
+              <div >
+                <div style={{ marginBottom: "0px", boxShadow: "none", borderRadius: "0", padding: "30px", marginTop: "15px", border: "0", backgroundColor: "rgb(249, 249, 249)", borderBottom: "0px solid #4A79FA", color: "#2D0874", paddingTop: "30px", marginLeft: "15px", marginRight: "15px" }} className="ContractCard">
+                  <BountyHeader />
+                  <h3 className="bountyHeader" style={{ margin: "0px 15px 30px 15px", width: "100%", display: "inline", fontSize: "28px", fontWeight: "600", textOverflow: "ellipsis", overflow: "hidden" }}>
+                    Call for Help: {this.state.title}</h3>
 
-            <div style={{marginBottom: "0px", boxShadow: "none", borderRadius: "0", padding: "30px", marginTop: "15px", border: "0", backgroundColor: "rgb(249, 249, 249)", borderBottom: "0px solid #4A79FA", color:"#2D0874", paddingTop: "30px", marginLeft: "15px", marginRight: "15px"}} className="ContractCard">
-              <h3 className="bountyHeader" style={{margin: "0px 15px 30px 15px", width: "100%", display: "inline", fontSize: "28px", textAlign: "center",  fontWeight: "600", textOverflow: "ellipsis", overflow: "hidden"}}>{"There's Nothing Here!"}</h3>
-              <h4 className="bountyHeader" style={{margin: "0px 15px 30px 15px", width: "100%", display: "inline", fontSize: "22px", textAlign: "center",  fontWeight: "500", textOverflow: "ellipsis", overflow: "hidden"}}>{"Maybe someone sent you here by mistake, but this bounty doesn't exist. It's possible someone sent you this link for a bounty on the "}<b style={{fontWeight: "600"}}>Rinkeby Testnet,</b></h4>
-              <h4 className="bountyHeader" style={{margin: "0px 15px 30px 15px", width: "100%", display: "inline", fontSize: "22px", textAlign: "center",  fontWeight: "500", textOverflow: "ellipsis", overflow: "hidden"}}>{"Try changing your Metamask network to the Rinkeby Network instead."}</h4>
-              <h4 className="bountyHeader" style={{margin: "0px 15px 30px 15px", width: "100%", display: "inline", fontSize: "28px", textAlign: "center",  fontWeight: "600", textOverflow: "ellipsis", overflow: "hidden"}}><Link to="/">Go Home</Link></h4>
-
-
-            </div>
-          }
-          {!(this.state.loadingFulfillments || this.state.loadingBounty || this.state.bountyError) &&
-            <div >
-              <div style={{marginBottom: "0px", boxShadow: "none", borderRadius: "0", padding: "30px", marginTop: "15px", border: "0", backgroundColor: "rgb(249, 249, 249)", borderBottom: "0px solid #4A79FA", color:"#1D2786", paddingTop: "30px", marginLeft: "15px", marginRight: "15px"}} className="ContractCard">
-                <h3 className="bountyHeader" style={{margin: "0px 15px 30px 15px", width: "100%", display: "inline", fontSize: "28px", textAlign: "center",  fontWeight: "600", textOverflow: "ellipsis", overflow: "hidden"}}> {this.state.title}</h3>
-
-                <div className="bountyPrice" style={{float: "left", display: "inline-block", width: "200px"}}>
-                  <div style={{backgroundColor: "rgba(1, 1, 1, 0.05)", display: "block", overflow: "hidden", padding: "15px"}}>
-                  <h5 style={{ fontSize: "13px", width: "100%", textAlign: "center", marginTop: "0px", marginBottom: "0px", color: "#8C9899", fontWeight: "200"}}>PRIZE</h5>
-
-                  <h5 style={{ width: "100%", textAlign: "center", marginTop: "7.5px", marginBottom: "0px", color: "#2D0874", fontSize: "32px", fontWeight: "600"}}>{this.state.value}<b style={{color: "#fe923b", fontWeight: "600", lineHeight: "28px"}}>{this.state.symbol? this.state.symbol : 'ETH'}</b></h5>
-
-                  <h5 style={{textAlign: "center", marginTop: "0px", color: "rgb(25, 55, 83)", marginBottom: "15px", fontSize: "16px", fontWeight: "200"}}><b style={{color: "#fe923b", fontWeight: "500"}}>$</b>{numberWithCommas(parseInt((this.state.usdValue )))}</h5>
-
-                    <p style={{ fontSize: "12px", width: "100%", margin: "2.5px 0px", textAlign: "center", marginBottom: "7.5px", color: "#8C9899"}}>Total Balance: {this.state.balance + " " + this.state.symbol}</p>
+                  <div style={{ width: '60%', float: 'left' }}>
+                    <BountyDetails
+                      categories={categories}
+                      state={this.state}
+                    />
+                  </div>
+                  <div style={{ width: '40%', float: 'left' }}>
+                    <BountyFunds
+                      state={this.state}
+                    />
+                    {(this.state.stage === "Active" && !this.state.mine) &&
+                      <div>
+                        <button onClick={this.handleToggleFulfillment} className='AddBtn' style={{ marginTop:"20px", textAlign:"center", width:"80%",border: "0", backgroundColor: "#FF8D24", color: "rgb(25, 55, 83)" }}>Fulfill Call for Action</button>
+                      </div>  
+                    }  
                   </div>
 
-{/*
-                  <form className='Contribute' onSubmit={this.handleContribute} style={{width: "100%", display: "inline-block", marginTop: "30px"}}>
-                    <h4 style={{fontFamily: "Open Sans", marginTop: "0", margin: "0 auto", marginBottom: "15px", textAlign: "center",  fontWeight: "600"}}> Contribute to Bounty</h4>
-                    <label htmlFor='deposit_amount' style={{fontSize: "12px"}}>Deposit Amount ({this.state.symbol? this.state.symbol: 'ΞTH'})</label>
-                    <input id='deposit_amount' className='SendAmount' type='number'  step="any" style={{width: "182px", border: "0px"}}/>
-                    {this.state.contributionError &&
-                      <p style={{fontSize: "12px", color: "#fe923b", marginTop: "0px", textAlign: "center"}}>{this.state.contributionError}</p>}
-                    <button type='submit' className='AddBtn' style={{backgroundColor: "rgba(0, 126, 255, 0)", border:"1px solid rgb(25, 55, 83)", color: "rgb(25, 55, 83)", width: "200px"}}>Contribute</button>
-                    <div style={{margin: "0 auto", display: "block", overflow: "hidden", width: "111px"}}>
-                      <Link target="_blank" to={"https://twitter.com/home?status=New Bounty: "+ this.state.title.substring(0,80) + (this.state.title.length > 80? "...":"")+"%20https%3A//beta.bounties.network/bounty/v1/"+this.state.bountyId}>
-                      <SvgTwitter style={{width: "15px", height: "15px", color: "#4A79FA", padding: "5px", border: "1px solid rgb(25, 55, 83)", borderRadius: "100px", marginTop: "30px", marginRight: "15px"}}
-                                  className="iconHover"/>
-                      </Link>
-                      <Link target="_blank" to={"https://www.facebook.com/sharer/sharer.php?u=https%3A//beta.bounties.network/bounty/"+this.state.bountyId}>
-                      <SvgFacebook style={{width: "15px", height: "15px", color: "#4A79FA", padding: "5px", border: "1px solid rgb(25, 55, 83)", borderRadius: "100px", marginTop: "30px", marginRight: "15px"}}
-                                  className="iconHover"/>
-                      </Link>
-                      <Link target="_blank" to={"http://reddit.com/submit?url=https%3A%2F%2Fbeta.bounties.network%2Fbounty%2F"+this.state.bountyId+"&title="+ this.state.title.substring(0,80) + (this.state.title.length > 80? "...":"")}>
-                      <SvgReddit style={{width: "15px", height: "15px", color: "#4A79FA", padding: "5px", border: "1px solid rgb(25, 55, 83)", borderRadius: "100px", marginTop: "30px"}}
-                                  className="iconHover"/>
-                      </Link>
+                </div>
+
+                <div style={{width: "100%", marginTop: "15px", display: "block", marginBottom: "30px", paddingBottom: "30px", minHeight: "90vh"}}>
+                      {(this.state.stage === "Active" && !this.state.mine) && this.state.fulfillmentOpen &&
+                  <div style={{backgroundColor: "rgb(249, 249, 249)", display: "block", overflow: "hidden", marginBottom: "30px"}}>
+                    <div style={{width: "calc(100% - 60px)", marginTop: "15px", marginLeft: "15px", marginRight: "15px", position: "relative", padding: "15px"}}>
+
+                      <FulfillBountyForm onSubmit={this.handleFulfill} state={this.state} />
+
+                      
+
+                      
                     </div>
-                  </form>
-*/}
+                  </div>}
+                  <div style = {{textAlign:"center", backgroundColor: "#FF8D24", color: "rgb(25, 55, 83)"}}>{numPushed+" Submission"+(numPushed !== 1? "s" : "")}</div>
+                {fulfillments}
                 </div>
-                <div className="bountyDetails" style={{float: "left", display: "inline-block", width: "calc(100% - 260px)", marginLeft: "30px", marginRight: "30px", overflow: "hidden", textOverflow: "ellipsis"}}>
-                  <p style={{ fontSize: "14px", margin: "4px  0px 10px 0px", display: "inline-block", float: "left"}}><b style={{color: "#1D2786"}}>Action Issuer: </b></p>
-                  <Blockies
-                  seed={this.state.issuer}
-                  size={9}
-                  scale={2.5}
-                  style={{borderRadius: "10px", display: "inline-block", float: "left"}}
-                  />
-                  <p style={{ fontSize: "14px", margin: "4px  0px 10px 0px", display: "inline-block", float: "left"}}><Link style={{color: "#4a78fa"}} to={"/user/"+ this.state.issuer}>{ this.state.issuer}</Link></p>
 
+            <div>
 
-                  <p style={{ fontSize: "14px", width: "100%", margin: "0px 0px 10px 0px", display: "block", overflow: "hidden"}}><b style={{color: "#1D2786", marginRight: "10px"}}>Action Stage:</b> {this.state.stage}</p>
-
-                  <p style={{ fontSize: "14px", width: "100%", margin: "0px 0px 10px 0px", display: "block", overflow: "hidden"}}><b style={{color: "#1D2786", marginRight: "10px"}}>Deadline:</b> {this.state.deadlineString}</p>
-
-                  <p style={{ fontSize: "14px", width: "100%", margin: "0px 0px 10px 0px"}}><b style={{color: "#1D2786", marginRight: "10px"}}>Contact the action issuer:</b> <a href={"mailto:"+this.state.contact} >{ this.state.contact}</a></p>
-                  {this.state.webLink &&
-                  <p style={{ fontSize: "14px", width: "100%", margin: "0px 0px 10px 0px"}}><b style={{color: "#1D2786", marginRight: "10px"}}>Github Link: </b> <Link style={{color: "#4a79fa"}} target={"_blank"} to={this.state.webLink}> {this.state.webLink} </Link> </p>}
-
-                  {this.state.sourceDirectoryHash &&
-                  <p style={{ fontSize: "14px", width: "100%", margin: "0px 0px 10px 0px"}}><b style={{color: "#1D2786", marginRight: "10px"}}>Associated File: </b> <Link style={{color: "#4a79fa"}} target={"_blank"} to={"https://ipfs.infura.io/ipfs/" + this.state.sourceDirectoryHash + "/"+ this.state.sourceFileName}> {this.state.sourceFileName} </Link> </p>}
-                  {this.state.paysTokens &&
-                  <p style={{ fontSize: "14px", width: "100%", margin: "0px 0px 10px 0px"}}><b style={{color: "#1D2786", marginRight: "10px"}}>Token Contract:</b> <Link style={{color: "#4a79fa"}} target={"_blank"} to={"https://etherscan.io/address/"+ this.state.tokenAddress}>{this.state.tokenAddress}</Link></p>}
-                  <p style={{ fontSize: "14px", width: "100%", margin: "0px 0px 10px 0px"}}><b style={{color: "#1D2786", marginRight: "10px"}}>Description: </b> </p>
-                  <ReactMarkdown source={this.state.description} />
-                  <div style={{margin: "0 auto", display: "block", overflow: "hidden", marginTop: "15px"}}>
-                    {categories}
-                  </div>
-                </div>
-                { /* actions */}
-            </div>
-
-
-            <Tabs tabItemContainerStyle={{backgroundColor: "rgb(249,249,249)", color: "#4A79FA"}}
+{/*}            <Tabs tabItemContainerStyle={{backgroundColor: "rgb(249,249,249)", color: "#4A79FA"}}
                   inkBarStyle={{backgroundColor: "#fe923b", color: "#4A79FA"}}
                   style={{backgroundColor: "rgba(0,0,0,0)"}}
                   onChange={this.handleMainTabsChange}
@@ -1873,24 +1816,19 @@ render() {
                       overflowY: 'auto',
                       height: "fixed"
                   }}>
-              <Tab label={numPushed+" Submission"+(numPushed !== 1? "s" : "")} value={0} style={{color: this.state.mainTabValue === 0? "#fff" : "#4A79FA", fontSize: "16px", backgroundColor: this.state.mainTabValue === 0? ("#2D0874"): "rgba(10, 22, 40, 0)"}}>
-                {fulBody}
+              <Tab label={numPushed+" Submission"+(numPushed !== 1? "s" : "")} value={0} style={{color: this.state.mainTabValue === 0? "#fff" : "#FF8D24", fontSize: "16px", backgroundColor: this.state.mainTabValue === 0? ("#FF8D24"): "rgba(10, 22, 40, 0)"}}>
+                {fulfillments}
               </Tab>
-{/*              <Tab label={this.state.myComments.length+" Comment"+(this.state.myComments.length !== 1? "s" : "")} value={1} style={{color: this.state.mainTabValue === 1? "#fff" : "#4A79FA", fontSize: "16px", backgroundColor: this.state.mainTabValue === 1? ("#2D0874") : "rgba(10, 22, 40, 0)"}}>
-                {comments}
-              </Tab>
+                  </Tabs>
 */}
-            </Tabs>
+                </div>
+              </div>
+            }
           </div>
-          }
         </div>
-{/*        <p style={{textAlign: "center", display: "block", fontSize: "10px", padding: "15px 0px", color: "#2D0874", width: "100%", position: "absolute", bottom: "0px"}}>&copy; Bounties Network, a <a href="https://ConsenSys.net" target="_blank" style={{textDecoration: "none", color: "#2D0874"}}>ConsenSys</a> Formation <br/>
-          <a href="/privacyPolicy/" target="_blank" style={{color: "#2D0874"}}>Privacy Policy</a>{" | "}<a href="/terms/" target="_blank" style={{color: "#2D0874"}}>Terms of Service</a>
-         </p>
-*/}
-      </div>
-    </div>
+      </div >
     )
+
   }
 }
 

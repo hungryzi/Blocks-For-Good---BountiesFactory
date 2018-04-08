@@ -29,9 +29,6 @@ export default class BountyStats extends Component {
           <button type='submit' className='AddBtn' style={{ border: "0", backgroundColor: "#FF8D24", color: "rgb(25, 55, 83)" }}>Fund this project</button>
           <input id='deposit_amount' className='SendAmount' type='number' step="any" style={{ border: "none !important;" }} placeholder={state.symbol ? state.symbol : 'ΞTH'} />
         </div>
-        <div>
-          <button type='submit' className='FulfillBtn'>Accept call for action</button>
-        </div>
 
         <div style={{ margin: "0 auto", display: "block", overflow: "hidden", width: "111px" }}>
           <Link target="_blank" to={"https://twitter.com/home?status=New Call for Help: " + state.title.substring(0, 80) + (state.title.length > 80 ? "..." : "") + "%20https%3A//beta.bounties.network/bounty/v1/" + state.bountyId}>
