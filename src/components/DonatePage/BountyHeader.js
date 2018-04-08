@@ -33,7 +33,7 @@ export default class BountyHeader extends Component {
     }}
       inkBarStyle={{
         width: "100%",
-        borderBottom: "1px solid black",
+        borderBottom: "2px solid black",
         color: 'black',
         backgroundColor: 'none'
       }}
@@ -42,7 +42,7 @@ export default class BountyHeader extends Component {
       tabTemplate={TabTemplate}
       style={{
         width: "100%",
-        borderBottom: "1px solid black",
+        borderBottom: "2px solid black",
         color: 'black',
         backgroundColor: 'none',
         display: 'block',
