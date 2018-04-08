@@ -341,6 +341,7 @@ class Trafficking extends Component {
 				  break;
 			  }
 			  
+			  
 			  var button = row.bountyStage == 0 ? 'Fund this project' : 'Accept this call'
 			  var link = "/"+(row.bountyStage == 0 ? "bounty" : "bountyFulfillment")+"/v1/"+row.bounty_id;
 			  var desc = row.description.substring(0,150)+'...';
@@ -351,7 +352,7 @@ class Trafficking extends Component {
 			  	    <div style={blockLeftStyle}>
 			  		<b>{row.title}</b><br/>
 			  		{desc}<br/>
-			  		<span style={{display: "inline", color: "#888"}}>{meta}</span>
+			  		<span style={{display: "inline", color: "#888"}}><a style={{textDecoration:"none", color:"#0F3057"}} href="/tracking">{meta}</a></span>
 			  		</div>
 			  		<div style={blockRightStyle}>
 			  		<b>${row.usd_price} USD</b><br/>
