@@ -186,12 +186,12 @@ class Tracking extends Component {
 					<Navigation userAddress={this.state.accounts[0] || ""} />
 					<div style={{ overflow: "hidden", width: "100%", margin: "0 auto", paddingBottom: "160px", display: "block" }}>
 						<div>
-							<div style={{ marginBottom: "0px", boxShadow: "none", borderRadius: "0", padding: "30px", marginTop: "15px", border: "0", display: "block", backgroundColor: "rgb(249, 249, 249)", borderBottom: "0px solid #4A79FA", color: "#1D2786", paddingTop: "30px", marginLeft: "15px", marginRight: "15px" }} className="ContractCard">
+							<div style={{ marginBottom: "0px", boxShadow: "none", borderRadius: "0", padding: "30px", marginTop: "15px", border: "0", display: "block", backgroundColor: "rgb(249, 249, 249)", borderBottom: "0px solid #4A79FA", color: "#0F3057", paddingTop: "30px", marginLeft: "15px", marginRight: "15px" }} className="ContractCard">
 								{this.headers()}
 								<div style={{ clear: "both" }} />
 								<div>
 									<h2>Salvation Army: Human Trafficking</h2>
-									<div style={{ float: "left", padding: "20px", borderRight: "1px solid #ff8d24", boxSizing: 'border-box', width: "40%" }}>
+									<div style={{ float: "left", padding: "20px", borderRight: "1px solid #f73859", boxSizing: 'border-box', width: "40%" }}>
 										<img src={arrows} style={{ width: "100%" }} />
 									</div>
 									<div style={{ float: "left", padding: "20px", boxSizing: 'border-box', width: "60%" }}>
