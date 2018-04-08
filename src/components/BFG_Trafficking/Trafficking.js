@@ -322,7 +322,7 @@ class Trafficking extends Component {
 		  });	  
 		  
 		  return (
-				  <div>
+				  <div id="trafficking">
 					  <div id="foreground">
 						  <div id="header">
 						  	<img src={logo}/>
