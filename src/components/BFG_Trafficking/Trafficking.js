@@ -52,7 +52,7 @@ class Trafficking extends Component {
 	      nextUrl: "",
 	      categories: [],
 	      value: "",
-	      optionsUnseparated: "cryptochickscharity",
+	      optionsUnseparated: "cryptochicksdemo",
 	      myDraft: 0,
 	      myActive: 0,
 	      myCompleted: 0,
@@ -261,7 +261,8 @@ class Trafficking extends Component {
 				  padding: "10px 10px"
 		  }
 		  var headerH2Style = {
-				  margin: "0px"
+				  margin: "0px",
+				  marginTop: "20px"
 		  }
 		  var bodyStyle = {
 				  padding: "20px",
@@ -305,17 +306,42 @@ class Trafficking extends Component {
 		  var clear = { clear: "both" };
 		  var rightBox = { borderRight: "none" }
 		  
+		  // 585 - Computer Skills Training
+		  // 584 - Legal Advice
+		  // 583 - Medical Checkups
+		  // 582 - Trauma Counseling
+		  
 		  var data = this.state.bounties;
 		  var activeRows = data.map(function(row) {
-			  if( row.bounty_id == 579 || row.bounty_id == 580 ) return;   // exclude early tests
-			  var button = row.bountyStage == 0 ? 'Fund this Project' : 'Accept this Call'
-		      var link = "/"+(row.bountyStage == 0 ? "bounty" : "bountyFulfillment")+"/v1/"+row.bounty_id;
-			  var desc = row.description.substring(0,200);
+			  var meta = '';
+			  switch( row.bounty_id ) {
+			  case 579:
+			  case 580:
+				  return;
+			  case 582:
+				  meta = 'Salvation Army | 8 months | 10 women';
+				  break;
+			  case 583:
+				  meta = 'TAMAR | 10 women';
+				  break;
+			  case 584:
+				  meta = 'Law Services International | 10 hours | 2 defendants';
+				  break;
+			  case 585:
+				  meta = 'Charities World Wide LLP | 20 Participants';
+				  break;
+			  }
+			  
+			  var button = row.bountyStage == 0 ? 'Fund this project' : 'Accept this call'
+			  var link = "/"+(row.bountyStage == 0 ? "bounty" : "bountyFulfillment")+"/v1/"+row.bounty_id;
+			  var desc = row.description.substring(0,150)+'...';
+				  
 			  return (
 			  	<div style={blockStyle}>
 			  	    <div style={blockLeftStyle}>
 			  		<b>{row.title}</b><br/>
-			  		{desc}
+			  		{desc}<br/>
+			  		<span style={{display: "inline", color: "#888"}}>{meta}</span>
 			  		</div>
 			  		<div style={blockRightStyle}>
 			  		<b>${row.usd_price} USD</b><br/>
@@ -357,7 +383,7 @@ class Trafficking extends Component {
 						  		<p>
 						  		There are 27m slaves in the world today. Human Trafficking is the fastest growing criminal industry generating $150b in Illegal profits. Every 30 seconds, someone in London becomes a victim of modern-day slavery. Traffickers use violence, threats, lies, debt bondage, and other forms of coercion to compel victims to engage in commercial sex acts or bonded labor against their will.
 						  		</p>
-						  		<div>
+						  		<div style={{marginTop: "40px"}}>
 						  			{activeRows}
 						  		</div>
 						  </div>

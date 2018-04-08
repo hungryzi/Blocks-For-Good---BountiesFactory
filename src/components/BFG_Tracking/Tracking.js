@@ -17,7 +17,9 @@ const IPFS = require('ipfs-mini');
 import logo from '../BFG_Trafficking/images/logo.png'
 import shoes from '../BFG_Trafficking/images/shoes.jpg'
 import search from '../BFG_Trafficking/images/spyglass.png'
-import piechart from './images/piechart.png'
+
+import arrows from './images/arrows.png'
+import lines from './images/lines.png'
 
 import FlatButton from 'material-ui/FlatButton';
 
@@ -30,24 +32,132 @@ import SvgArrow from 'material-ui/svg-icons/hardware/keyboard-arrow-right';
 class Tracking extends Component {
 	  constructor(props) {
 		    super(props)
+		    
+		    this.state = {
+			      modalError: "",
+			      modalOpen: false,
+			      accounts: [],
+			      bounties: [],
+			      optionsList: [],
+			      loading: true,
+			      loadingMore: false,
+			      selectedStage: "",
+			      selectedMine: "ANY",
+			      sortBy: "Created",
+			      descending: true,
+			      searchQuery: "",
+			      StandardBounties : web3.eth.contract(json.interfaces.StandardBounties).at(json.mainNet.standardBountiesAddress.v1),
+			      UserComments : web3.eth.contract(json.interfaces.UserComments).at(json.mainNet.userCommentsAddress),
+			      nextUrl: "",
+			      categories: [],
+			      value: "",
+			      optionsUnseparated: "cryptochicksdemo",
+			      myDraft: 0,
+			      myActive: 0,
+			      myCompleted: 0,
+			      myDead: 0,
+			      myExpired: 0,
+			      myTotal: 0,
+			      resultsCount: 0,
+			      baseURL: json.url.mainNet
+			    }
+			    
+		    this.getInitialData();
 	  }
+	  
+	  getInitialData(){
+		    window.loaded = true;
+
+		    if (typeof window.web3 !== 'undefined' && typeof window.web3.currentProvider !== 'undefined') {
+
+		      // Use Mist/MetaMask's provider
+		        web3.setProvider(window.web3.currentProvider);
+
+		        web3.version.getNetwork((err, netId) => {
+		          console.log("rinkeby", json.url.rinkeby);
+
+		          if (netId === "1"){
+		            this.setState({StandardBounties : web3.eth.contract(json.interfaces.StandardBounties).at(json.mainNet.standardBountiesAddress.v1),
+		                           UserCommentsContract: web3.eth.contract(json.interfaces.UserComments).at(json.mainNet.userCommentsAddress),
+		                           selectedNetwork: netId,
+		                          baseURL: json.url.mainNet});
+		          } else if (netId === "4"){
+		            this.setState({StandardBounties : web3.eth.contract(json.interfaces.StandardBounties).at(json.rinkeby.standardBountiesAddress.v1),
+		                           StandardBountiesv0 : web3.eth.contract(json.interfaces.StandardBounties).at(json.rinkeby.standardBountiesAddress.v0),
+		                           UserCommentsContract: web3.eth.contract(json.interfaces.UserComments).at(json.rinkeby.userCommentsAddress),
+		                           selectedNetwork: netId,
+		                          baseURL: json.url.rinkeby});
+		                          console.log("rinkeby", json.url.rinkeby);
+		          } else {
+		            this.setState({modalError: ("Please change your Ethereum network to the Main Ethereum network or the Rinkeby network"), modalOpen: true});
+		          }
+
+		          setInterval(function() {
+		            web3.version.getNetwork(function(err, newNetId){
+		              if (netId !== newNetId) {
+		                window.location.reload();
+		              }
+		            });
+		          }, 2000);
+
+
+
+		          web3.eth.getAccounts(function(err, accs){
+		            if (err){
+		              console.log ('error fetching accounts', err);
+		            } else {
+		              if (accs.length === 0){
+		                this.setState({modalError: "Please unlock your MetaMask Accounts", modalOpen: true});
+
+		              } else {
+		              var account = web3.eth.accounts[0];
+		              setInterval(function() {
+		                web3.eth.getAccounts(function(err, accs){
+		                  if (accs[0] !== account) {
+		                    account = web3.eth.accounts[0];
+		                    window.location.reload();
+		                  }
+		                });
+		              }, 2000);
+		              this.setState({accounts: accs});
+
+//		              this.getBounties();
+		             // this.getCategories();
+		              //this.getMyBounties();
+		            }
+		          }
+		          }.bind(this));
+
+		      });
+		    } else {
+		      this.setState({accounts: [], selectedNetwork: "1"});
+		      //this.getBounties();
+		      //this.getCategories();
+		    }
+		  }
 	  
 	  render() {
 		  return (
-			<div id="foreground">
-				  <div id="header">
-				  	<img src={logo}/>
-				  	<ul id="menu">
-				  		<li><input placeholder="Search"/><img src={search}/></li>
-					  	<li>About</li>
-					  	<li>Start a Project</li>
-					  	<li>Sign In</li>
-				  	</ul>
+		      <div id="trafficking">
+			       <div id={"colourBodyLight"} style={{minHeight: "100vh", position: "relative"}}>
+			           <Navigation userAddress={this.state.accounts[0] || ""}/> 
+				           <div style={{ overflow: "hidden", width: "100%", margin: "0 auto", paddingBottom: "160px", display: "block"}}>
+			              <div>
+		                       <div style={{marginBottom: "0px", boxShadow: "none", borderRadius: "0", padding: "30px", marginTop: "15px", border: "0", display: "block", backgroundColor: "rgb(249, 249, 249)", borderBottom: "0px solid #4A79FA", color:"#1D2786", paddingTop: "30px", marginLeft: "15px", marginRight: "15px"}} className="ContractCard">
+		                       <h2>Salvation Army: Human Trafficking</h2>
+		   		                         <div style={{float:"left",padding:"20px",borderRight: "1px solid #ff8d24"}}>
+				                    <img src={arrows} style={{width:"600px"}}/>
+				                 </div>
+				                 <div style={{float:"left",padding:"20px"}}>
+				                    <img src={lines} style={{width:"800px"}}/>
+				                 </div>
+				                    <div style={{clear:"both"}}>
+				                    </div>
+				              </div>
+				           </div>
 				  </div>
-				  <div>
-				  <img src={piechart}/>
-</div>
-			  </div>
+			</div>
+			</div>
 			)
 	  }
 }
