@@ -31,6 +31,10 @@ import BountyDetails from 'components/DonatePage/BountyDetails';
 import Error from 'components/DonatePage/Error';
 import FulfillBountyForm from './FulfillBountyForm'
 
+import ComputerImg from '../BFG_Trafficking/images/computer-thumb.jpg';
+import TraumaImg from '../BFG_Trafficking/images/trauma-big.jpg';
+import LegalImg from '../BFG_Trafficking/images/legal-big.jpg';
+import MedicalImg from '../BFG_Trafficking/images/medical-big.jpg';
 
 import ActivateForm from 'components/ActivateForm/ActivateForm';
 import EditForm from 'components/EditForm/EditForm';
@@ -1381,6 +1385,23 @@ render() {
     } else {
       fileName = this.state.sourceFileName;
     }
+    
+    var img = '';
+    switch( this.state.bountyId ) {
+	  case '582':
+		  img = TraumaImg;
+		  break;
+	  case '583':
+		  img = MedicalImg;
+		  break;
+	  case '584':
+		  img = LegalImg;
+		  break;
+	  case '585':
+		  img = ComputerImg;
+		  break;
+    }
+    
     if (this.state.mine){
       if (this.state.stage === "Draft"){
         console.log("categories", this.state.categoryOptions);
@@ -1759,6 +1780,9 @@ render() {
                     Call for Help: {this.state.title}</h3>
 
                   <div style={{ width: '60%', float: 'left' }}>
+                  
+                  <img src={img} style={{width: "300px", float: "left" }}/>
+
                     <BountyDetails
                       categories={categories}
                       state={this.state}

@@ -1393,7 +1393,6 @@ class DonatePage extends Component {
     }
     
     var img = '';
-    console.log("BountyID == "+this.state.bountyId);
     switch( this.state.bountyId ) {
 	  case '582':
 		  img = TraumaImg;
