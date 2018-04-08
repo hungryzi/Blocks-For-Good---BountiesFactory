@@ -1779,11 +1779,13 @@ class DonatePage extends Component {
             {!(this.state.loadingFulfillments || this.state.loadingBounty || this.state.bountyError) &&
               <div >
                 <div style={{ marginBottom: "0px", boxShadow: "none", borderRadius: "0", padding: "30px", marginTop: "15px", border: "0", backgroundColor: "rgb(249, 249, 249)", borderBottom: "0px solid #4A79FA", color: "#2D0874", paddingTop: "30px", marginLeft: "15px", marginRight: "15px" }} className="ContractCard">
-                  <BountyHeader />
-                  <h3 className="bountyHeader" style={{ margin: "0px 15px 30px 15px", width: "100%", display: "inline", fontSize: "28px", fontWeight: "600", textOverflow: "ellipsis", overflow: "hidden" }}>
-                    Call for Help: {this.state.title}</h3>
-
+                  <BountyHeader
+                    state={this.state}
+                    handleMainTabsChange={this.handleMainTabsChange}
+                  />
                   <div style={{ width: '70%', float: 'left' }}>
+                    <h3 className="bountyHeader" style={{ width: "100%", display: "inline", fontSize: "28px", fontWeight: "600", textOverflow: "ellipsis", overflow: "hidden" }}>
+                      Call for Action: {this.state.title}</h3>
                     <BountyDetails
                       categories={categories}
                       state={this.state}
