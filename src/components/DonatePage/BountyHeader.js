@@ -8,11 +8,11 @@ export default class BountyHeader extends Component {
         <div>Our Impact</div>
       </div>
       <div>
-        <div style={{ width: '60%', float: 'left' }}>
+        <div style={{ width: '60%', float: 'left', boxSizing: 'border-box', padding: '1em' }}>
           The Salvation Army is a Christian organization that gives hope and support to vulnerable people in 400 communities across Canada and in 128 countries.
     The Salvation Army exists to share the love of Jesus Christ, meet human needs and be a transforming influence in the communities of our world. (visit our Web Site)
         </div>
-        <div className="tabs" style={{ width: '40%', float: 'left' }}>
+        <div className="tabs" style={{ width: '40%', float: 'left', boxSizing: 'border-box', padding: '1em' }}>
           <div className="tab">
             DONATIONS RECEIVED
             <br />

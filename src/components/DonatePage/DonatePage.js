@@ -1783,13 +1783,13 @@ class DonatePage extends Component {
                   <h3 className="bountyHeader" style={{ margin: "0px 15px 30px 15px", width: "100%", display: "inline", fontSize: "28px", fontWeight: "600", textOverflow: "ellipsis", overflow: "hidden" }}>
                     Call for Help: {this.state.title}</h3>
 
-                  <div style={{ width: '60%', float: 'left' }}>
+                  <div style={{ width: '70%', float: 'left' }}>
                     <BountyDetails
                       categories={categories}
                       state={this.state}
                     />
                   </div>
-                  <div style={{ width: '40%', float: 'left' }}>
+                  <div style={{ width: '30%', float: 'left' }}>
                     <BountyStats
                       handleContribute={this.handleContribute}
                       state={this.state}

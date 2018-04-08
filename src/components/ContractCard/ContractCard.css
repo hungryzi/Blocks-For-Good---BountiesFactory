@@ -30,16 +30,12 @@ Canvas.identicon{
 
 }
 
-
   input {
-    margin-bottom: 1em;
     font-size:1em;
     font-family: 'Open Sans';
     padding: .5rem;
     color: black;
-    border: 2px solid black;
-    width: 100%;
-
+    margin: 0.5em;
   }
   .ContractCode {
     margin-bottom: 1em;
@@ -58,11 +54,17 @@ Canvas.identicon{
     cursor: pointer;
     text-align: center;
     vertical-align: middle;
-    border: 2px solid black;
-    background-color: black;
+  }
+  .FulfillBtn {
+    margin-top: 1em;
+    font-size: 1em;
+    line-height: 1;
+    padding: 1rem;
+    cursor: pointer;
+    text-align: center;
+    vertical-align: middle;
     width: 100%;
   }
-
 }
 .SideArrow{
   background-color: #183653;
