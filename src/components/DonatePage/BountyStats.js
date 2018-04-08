@@ -31,9 +31,6 @@ export default class BountyStats extends Component {
           <button type='submit' className='AddBtn' style={{ border: "0", backgroundColor: "#FF8D24", color: "rgb(25, 55, 83)" }}>Fund this project</button>
           <input id='deposit_amount' className='SendAmount' type='number' step="any" style={{ border: "none !important" }} placeholder={state.symbol ? state.symbol : 'ΞTH'} />
         </div>
-        <div>
-          <button type='submit' className='FulfillBtn'>Accept call for action</button>
-        </div>
 
         <div style={{ display: "block", overflow: "hidden" }}>
           <span style={{ float: 'right', display: 'flex', alignItems: 'center', flex: '1 1 0' }}>
