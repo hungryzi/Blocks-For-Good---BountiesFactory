@@ -1785,7 +1785,7 @@ class DonatePage extends Component {
                   />
                   <div style={{ width: '70%', float: 'left' }}>
                     <h3 className="bountyHeader" style={{ width: "100%", display: "inline", fontSize: "28px", fontWeight: "600", textOverflow: "ellipsis", overflow: "hidden" }}>
-                      Call for Help: {this.state.title}</h3>
+                      Call for Action: {this.state.title}</h3>
                     <BountyDetails
                       categories={categories}
                       state={this.state}

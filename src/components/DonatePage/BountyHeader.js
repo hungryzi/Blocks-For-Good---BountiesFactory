@@ -53,7 +53,7 @@ export default class BountyHeader extends Component {
       }}>
       <Tab label='About' value={0} style={{ fontWeight: this.state.mainTabValue === 0 ? "bold" : "normal", color: 'black', backgroundColor: 'none', display: 'block' }}>
         <div>
-          <div style={{ width: '60%', float: 'left', boxSizing: 'border-box', padding: '1em' }}>
+          <div style={{ width: '60%', float: 'left', boxSizing: 'border-box', padding: '1em', borderRight: "2px solid black" }}>
             The Salvation Army is a Christian organization that gives hope and support to vulnerable people in 400 communities across Canada and in 128 countries.
       The Salvation Army exists to share the love of Jesus Christ, meet human needs and be a transforming influence in the communities of our world. (visit our Web Site)
         </div>
