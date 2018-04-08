@@ -23,6 +23,8 @@ import FlatButton from 'material-ui/FlatButton';
 import ContractList from 'components/ContractList/ContractList';
 import Navigation from 'components/Navigation/Navigation';
 
+
+
 import Dialog from 'material-ui/Dialog';
 import SvgArrow from 'material-ui/svg-icons/hardware/keyboard-arrow-right';
 
@@ -317,7 +319,7 @@ class Trafficking extends Component {
 			  		</div>
 			  		<div style={blockRightStyle}>
 			  		<b>${row.usd_price} USD</b><br/>
-			  		<a href={link}>{button}</a>
+			  		<a href={link} className="button">{button}</a>
 			  		</div>
 			  		<div style={clear}/>
 			  	</div>
@@ -326,17 +328,14 @@ class Trafficking extends Component {
 		  
 		  return (
 				  <div id="trafficking">
-					  <div id="foreground">
-						  <div id="header">
-						  	<img src={logo}/>
-						  	<ul id="menu">
-						  		<li><input placeholder="Search"/><img src={search}/></li>
-							  	<li>About</li>
-							  	<li>Start a Project</li>
-							  	<li>Sign In</li>
-						  	</ul>
-						  </div>
-						  <div style={bodyStyle}>
+			       <div id={"colourBodyLight"} style={{minHeight: "100vh", position: "relative"}}>
+			       
+				  <Navigation userAddress={this.state.accounts[0] || ""}/> 
+				  <div style={{ overflow: "hidden", width: "100%", margin: "0 auto", paddingBottom: "160px", display: "block"}}>
+
+		            <div >
+		              <div style={{marginBottom: "0px", boxShadow: "none", borderRadius: "0", padding: "30px", marginTop: "15px", border: "0", display: "block", backgroundColor: "rgb(249, 249, 249)", borderBottom: "0px solid #4A79FA", color:"#1D2786", paddingTop: "30px", marginLeft: "15px", marginRight: "15px"}} className="ContractCard">
+
 						  	<div id="dashStyle">
 						  		<div><span>Total Donors</span>15,000</div>
 						  		<div><span>Total Donated</span>2,000 ETH</div>
@@ -364,13 +363,23 @@ class Trafficking extends Component {
 						  </div>
 					  </div>
 				  </div>
+				  </div>
+				  </div>
 		  )
 	  }
 }
 
 export default Trafficking
 
-
+//<div id="header">
+//	<img src={logo}/>
+//	<ul id="menu">
+//		<li><input placeholder="Search"/><img src={search}/></li>
+//  	<li>About</li>
+//  	<li>Start a Project</li>
+//  	<li>Sign In</li>
+//	</ul>
+//</div>
 //	<p>
 //	<ul>
 //	<li>Sex trafficking occurs in a range of venues including fake massage businesses, via online ads or escort services, in residential brothels, on the street or at hotels</li>
